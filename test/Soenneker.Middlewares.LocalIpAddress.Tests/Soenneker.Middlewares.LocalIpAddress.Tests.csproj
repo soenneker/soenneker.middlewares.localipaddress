@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Middlewares.LocalIpAddress.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Middlewares.LocalIpAddress\Soenneker.Middlewares.LocalIpAddress.csproj" />
     </ItemGroup>
 
     <ItemGroup>
