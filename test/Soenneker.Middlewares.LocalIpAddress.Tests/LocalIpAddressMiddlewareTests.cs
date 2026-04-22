@@ -1,16 +1,15 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Middlewares.LocalIpAddress.Tests;
 
-[Collection("Collection")]
-public class LocalIpAddressMiddlewareTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class LocalIpAddressMiddlewareTests : HostedUnitTest
 {
-    public LocalIpAddressMiddlewareTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public LocalIpAddressMiddlewareTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
