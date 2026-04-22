@@ -38,7 +38,7 @@ jobs:
         run: dotnet build test/Soenneker.Middlewares.LocalIpAddress.Tests/Soenneker.Middlewares.LocalIpAddress.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.Middlewares.LocalIpAddress.Tests/Soenneker.Middlewares.LocalIpAddress.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
+        run: dotnet test --project test/Soenneker.Middlewares.LocalIpAddress.Tests/Soenneker.Middlewares.LocalIpAddress.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
       - name: Pack
         run: dotnet pack src/Soenneker.Middlewares.LocalIpAddress/Soenneker.Middlewares.LocalIpAddress.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
