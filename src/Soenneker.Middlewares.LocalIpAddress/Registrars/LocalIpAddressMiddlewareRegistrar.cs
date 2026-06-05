@@ -7,6 +7,11 @@ namespace Soenneker.Middlewares.LocalIpAddress.Registrars;
 /// </summary>
 public static class LocalIpAddressMiddlewareRegistrar
 {
+    /// <summary>
+    /// Executes the use local ip address operation.
+    /// </summary>
+    /// <param name="builder">The builder.</param>
+    /// <returns>The result of the operation.</returns>
     public static IApplicationBuilder UseLocalIpAddress(this IApplicationBuilder builder)
     {
         return builder.UseMiddleware<LocalIpAddressMiddleware>();

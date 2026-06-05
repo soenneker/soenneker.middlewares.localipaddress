@@ -16,6 +16,11 @@ public sealed class LocalIpAddressMiddleware
         _next = next;
     }
 
+    /// <summary>
+    /// Executes the invoke operation.
+    /// </summary>
+    /// <param name="httpContext">The http context.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     public Task Invoke(HttpContext httpContext)
     {
         httpContext.Connection.LocalIpAddress = _fakeIpAddress;
