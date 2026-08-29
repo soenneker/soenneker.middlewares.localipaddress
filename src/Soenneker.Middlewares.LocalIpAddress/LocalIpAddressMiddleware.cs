@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace Soenneker.Middlewares.LocalIpAddress;
 
-/// <inheritdoc cref="ILocalIpAddressMiddleware"/>
+/// <summary>
+/// Middleware that replaces both endpoint IP addresses with the loopback address before passing the request to the next delegate.
+/// </summary>
 public sealed class LocalIpAddressMiddleware
 {
     private readonly RequestDelegate _next;
