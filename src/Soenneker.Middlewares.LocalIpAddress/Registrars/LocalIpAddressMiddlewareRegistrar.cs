@@ -8,10 +8,10 @@ namespace Soenneker.Middlewares.LocalIpAddress.Registrars;
 public static class LocalIpAddressMiddlewareRegistrar
 {
     /// <summary>
-    /// Executes the use local ip address operation.
+    /// Adds the use local ip address local ip address middleware utility to the class list.
     /// </summary>
-    /// <param name="builder">The builder.</param>
-    /// <returns>The result of the operation.</returns>
+    /// <param name="builder">Builder to configure.</param>
+    /// <returns>The same builder instance, so additional classes or variants can be chained.</returns>
     public static IApplicationBuilder UseLocalIpAddress(this IApplicationBuilder builder)
     {
         return builder.UseMiddleware<LocalIpAddressMiddleware>();

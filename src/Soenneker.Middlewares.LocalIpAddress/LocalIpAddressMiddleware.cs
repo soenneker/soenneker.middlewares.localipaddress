@@ -17,10 +17,10 @@ public sealed class LocalIpAddressMiddleware
     }
 
     /// <summary>
-    /// Executes the invoke operation.
+    /// Invokes the local ip address middleware with the supplied payload.
     /// </summary>
-    /// <param name="httpContext">The http context.</param>
-    /// <returns>A task that represents the asynchronous operation.</returns>
+    /// <param name="httpContext">HTTP context containing the Basic authentication request.</param>
+    /// <returns>A task that completes when the callback has finished running.</returns>
     public Task Invoke(HttpContext httpContext)
     {
         httpContext.Connection.LocalIpAddress = _fakeIpAddress;
