@@ -1,8 +1,17 @@
-﻿namespace Soenneker.Middlewares.LocalIpAddress.Abstract;
+using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace Soenneker.Middlewares.LocalIpAddress.Abstract;
 
 /// <summary>
-/// Middleware that sets both the local and remote IP addresses of the incoming HTTP context to 127.0.0.1 before invoking the next delegate in the request pipeline.
+/// Replaces the local and remote endpoint addresses with the IPv4 loopback address for test requests.
 /// </summary>
 public interface ILocalIpAddressMiddleware
 {
+    /// <summary>
+    /// Rewrites the connection addresses and invokes the remaining request pipeline.
+    /// </summary>
+    /// <param name="httpContext">Current HTTP context.</param>
+    /// <returns>A task that completes with the remaining request pipeline.</returns>
+    Task Invoke(HttpContext httpContext);
 }

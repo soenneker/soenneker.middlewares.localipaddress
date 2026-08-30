@@ -1,32 +1,23 @@
-﻿using Soenneker.Middlewares.LocalIpAddress.Abstract;
+using Microsoft.AspNetCore.Http;
+using Soenneker.Middlewares.LocalIpAddress.Abstract;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace Soenneker.Middlewares.LocalIpAddress;
 
-/// <summary>
-/// Middleware that replaces both endpoint IP addresses with the loopback address before passing the request to the next delegate.
-/// </summary>
-public sealed class LocalIpAddressMiddleware
+public sealed class LocalIpAddressMiddleware : ILocalIpAddressMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly IPAddress _fakeIpAddress = IPAddress.Loopback;
 
     public LocalIpAddressMiddleware(RequestDelegate next)
     {
         _next = next;
     }
 
-    /// <summary>
-    /// Invokes the local ip address middleware with the supplied payload.
-    /// </summary>
-    /// <param name="httpContext">HTTP context containing the Basic authentication request.</param>
-    /// <returns>A task that completes when the callback has finished running.</returns>
     public Task Invoke(HttpContext httpContext)
     {
-        httpContext.Connection.LocalIpAddress = _fakeIpAddress;
-        httpContext.Connection.RemoteIpAddress = _fakeIpAddress;
+        httpContext.Connection.LocalIpAddress = IPAddress.Loopback;
+        httpContext.Connection.RemoteIpAddress = IPAddress.Loopback;
 
         return _next(httpContext);
     }
