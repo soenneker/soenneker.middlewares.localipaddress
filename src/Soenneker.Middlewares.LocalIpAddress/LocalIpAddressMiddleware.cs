@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Soenneker.Middlewares.LocalIpAddress;
 
+/// <inheritdoc cref="ILocalIpAddressMiddleware" />
 public sealed class LocalIpAddressMiddleware : ILocalIpAddressMiddleware
 {
     private readonly RequestDelegate _next;
